@@ -19,7 +19,7 @@ class ViewController: UIViewController, WKScriptMessageHandler {
         let contentController = WKUserContentController();
         
         // html head에 삽입할 javascript method (고정)
-        let script = "$('head').append('<script>window.callFunc = function(data){webkit.messageHandlers.callbackHandler.postMessage(JSON.stringify(data)); }</script>');"
+        let script = "$('head').append('<script> window.tyleSDKCallback = { cb : function(data){webkit.messageHandlers.callbackHandler.postMessage(JSON.stringify(data)); } } </script>');"
 
         // webivew 에 스크립트 등록 하기 위한 객체
         let userScript = WKUserScript(
